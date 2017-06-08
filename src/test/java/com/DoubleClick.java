@@ -9,8 +9,8 @@ public class DoubleClick {
 
 	public static void main(String... args) {
 		{
-			System.setProperty("webdriver.chrome.driver",
-					"C:\\Users\\apathak\\Downloads\\chromedriver_win32\\chromedriver.exe");
+			String path = System.getProperty("user.dir");
+			System.setProperty("webdriver.chrome.driver", path+ "\\src\\test\\resources\\drivers\\chromedriver.exe");
 			WebDriver driver = new ChromeDriver();
 			driver.get("http://www.jabong.com");
 			driver.findElement(By.xpath(".//input[@id='search']")).sendKeys(

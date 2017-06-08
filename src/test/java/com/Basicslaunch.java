@@ -24,8 +24,9 @@ public class Basicslaunch {
 	@Test
 	public void launchChrome() {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\apathak\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		
+		String path = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", path+ "\\src\\test\\resources\\drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.google.co.in");
 		driver.quit();
@@ -49,8 +50,7 @@ public class Basicslaunch {
 		driver.findElement(By.name("user[login]")).sendKeys("anujpathak");
 		driver.findElement(By.xpath(".//*[@id='user[email]']")).sendKeys(
 				"anujpathak999@gmail.com");
-		driver.findElement(By.xpath(".//*[@id='user[password]']")).sendKeys(
-				"*AbCdEf123#");
+		driver.findElement(By.xpath(".//*[@id='user[password]']")).click();
 		driver.quit();
 	}
 }

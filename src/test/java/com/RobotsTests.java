@@ -3,6 +3,7 @@ package com;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,11 +13,13 @@ class RobotsTests {
 
 	@Test
 	
-	public void att()
+	public void Robot() throws InterruptedException, AWTException{
 	
-			 {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\apathak\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		String path = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", path
+				+ "\\src\\test\\resources\\drivers\\chromedriver.exe");
+		System.out.println(path);
+
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://spreadsheetpage.com/index.php/file/C35");
 		driver.findElement(
@@ -35,4 +38,5 @@ class RobotsTests {
 		Thread.sleep(2000);
 		robot.keyPress(KeyEvent.VK_ENTER);
 			
-		}}}
+	}		
+}

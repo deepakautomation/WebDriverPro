@@ -10,8 +10,8 @@ public class IframesTest {
 	@Test
 	public void iframes() {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\apathak\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		String path = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", path+ "\\src\\test\\resources\\drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://toolsqa.wpengine.com/iframe-practice-page/");
 		// List<WebElement>iframeElements=driver.findElements(By.tagName("iframe1"));

@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Dropdown {
+public class Google {
 	public static void main(String...args){
-	
+		
 		String path = System.getProperty("user.dir");
 		System.setProperty("webdriver.chrome.driver", path+ "\\src\\test\\resources\\drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -27,7 +27,6 @@ public class Dropdown {
 		Select.selectByValue("1993");
 
 	}
-	
 	
 
 }

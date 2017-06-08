@@ -13,21 +13,36 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HansHover {
 
 	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\apathak\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		String path = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", path+ "\\src\\test\\resources\\drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://hansrajcollege.ac.in");
-
-		WebElement element = driver.findElement(By
-				.xpath(".//*[@href='acdmc.php']"));
+		
+		
+		WebElement element = driver.findElement(By.xpath(".//*[@href='acdmc.php']"));
+		Actions action = new Actions(driver);
+		action.moveToElement(element).perform();
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy
+				(By.xpath("/ul[starts-with(@class,'MenuBarSubmenuVisible')]")));
+		
+		driver.findElement(By.xpath("/ul[starts-with(@class,'MenuBarSubmenuVisible')]"));
+		/*
+		WebElement subElement = driver.findElement(By.xpath(".//*[@href='course.php']"));
+		action.moveToElement(subElement).perform();
+		*/
+		/*driver.findElement(By.xpath(".//*[@href='acdmc.php']"));
 
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		WebElement element1 = wait.until(ExpectedConditions
-				.elementToBeClickable(By.xpath(".//*[@href='course.php']")));
-
+		WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@href='course.php']")));
+		
+		
 		Actions action = new Actions(driver);
-		action.moveToElement(element1).build().perform();
+		action.moveToElement(element2).build().perform();
 		driver.findElement(By.xpath(".//*[@href='course.php']"));
-	}
-
+	
+		*/
+		
+}
 }
